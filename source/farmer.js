@@ -5,7 +5,7 @@ let tutorialHTML = `
     </br>
     <p>Put a khan academy url to a lesson into a input box bellow, then press the farm button and it\'ll farm points on that lesson, you can farm from more then one url at a time BUT NOT THE SAME LESSON.</p>
     <input id="url"></input>
-    <button id="btn" onclick="makeFrame(document.getElementById(\'url\').value)">Farm</button>undefined
+    <button id="btn" onclick="e(document.getElementById(\'url\').value)">Farm</button>
 </html>
 `
 

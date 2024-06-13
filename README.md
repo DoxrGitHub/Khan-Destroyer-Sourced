@@ -1,3 +1,8 @@
+# modified by doxr
+
+energy farmer is fixed.
+
+
 <div align="center">
   <img src="https://github.com/ilytobias/Khan-Destroyer/assets/165577429/fcd7fa24-a62c-46c8-bc02-78463bd4c64a" width="500" height="500"></img>
 
@@ -14,8 +19,6 @@
 ## Userscripts
 **You can only run one userscript at a time or else it will break both.**
 <br>
-
-# modified by doxr
 
 * Get a userscript provider like [Tampermoney](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) Or [Greasyfork](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/).
 * Choose a userscript [Answer Overwrite](https://github.com/ilytobias/Khan-Destroyer/raw/main/cheats/overwrite.user.js), [Answer Revealer](https://github.com/ilytobias/Khan-Destroyer/raw/main/cheats/revealer.user.js) (For more selection please use the Bookmarklet method.)
