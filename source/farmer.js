@@ -1,11 +1,22 @@
-let tutorialHTML = `
+let newtutorialHTML = `
 <html>
   <h1>How to use</h1>
   <h2>Make sure you ran this bookmark on a khan url, doesnt matter what url as long as its an offical khan link. </h1>
     </br>
     <p>Efficiency ammount (the higher, the laggier... don't do 100 unless you're sure you can run it, otherwise it crashes your browser).</p>
     <input type="range" min="1" max="100" value="5" class="slider" id="url">
-    <button id="btn" onclick="e(document.getElementById(\'url\').value)">Start Farm</button>
+    <button id="btn" onclick="newE(document.getElementById(\'url\').value)">Start Farm</button>
+</html>
+`
+
+let tutorialHTML = `
+<html>
+  <h1>How to use</h1>
+  <h2>Make sure you ran this bookmark on a khan url, doesnt matter what url as long as its an offical khan link. </h1>
+    </br>
+    <p>Put a khan academy url to a lesson into a input box bellow, then press the farm button and it\'ll farm points on that lesson, you can farm from more then one url at a time BUT NOT THE SAME LESSON.</p>
+    <input id="url"></input>
+    <button id="btn" onclick="e(document.getElementById(\'url\').value)">Farm</button>
 </html>
 `
 
@@ -179,7 +190,17 @@ let ssq = [ // 100 quizzes
 
 document.write(tutorialHTML);
 
-function e(sliderValue) {
+function e(e) {
+	const t = document.createElement("iframe");
+	t.width = "1px";
+	t.height = "1px";
+	t.src = e;
+	document.getElementsByTagName("html")[0].appendChild(t);
+	const a = t.contentWindow;
+	a.eval(farmScript)
+}
+
+function newE(sliderValue) {
     const numFrames = sliderValue; // Use the slider value as the number of frames
     const totalUrls = ssq.length; // Total number of URLs in the ssq array
     const startIndex = Math.floor(Math.random() * totalUrls); // Random starting index
