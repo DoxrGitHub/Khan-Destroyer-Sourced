@@ -46,7 +46,7 @@ let newtutorialHTML = `
       <span id="currentValue"></span>
       <input type="range" min="1" max="100" value="5" class="slider" id="url">
     </div>
-    <button id="btn" onclick="newE(document.getElementById('url').value)">Start Farm</button>
+    <button id="btn" onclick="window.newE(document.getElementById('url').value)">Start Farm</button>
   </body>
 </html>
 `;
@@ -244,7 +244,7 @@ function e(e) {
 	a.eval(farmScript)
 }
 
-function newE(sliderValue) {
+window.newE = function(sliderValue) {
   const numFrames = sliderValue;
   const totalUrls = ssq.length;
   const startIndex = Math.floor(Math.random() * totalUrls);
