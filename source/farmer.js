@@ -198,7 +198,7 @@ function e(e) {
 	a.eval(farmScript)
 }
 
-document.write(tutorialHTML);
+document.write(newtutorialHTML);
 
 function newE(sliderValue) {
     const numFrames = sliderValue; // Use the slider value as the number of frames
