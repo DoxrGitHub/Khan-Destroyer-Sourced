@@ -244,27 +244,27 @@ function e(e) {
 	a.eval(farmScript)
 }
 
-document.write(newtutorialHTML);
-
 function newE(sliderValue) {
-    const numFrames = sliderValue;
-    const totalUrls = ssq.length;
-    const startIndex = Math.floor(Math.random() * totalUrls);
-    const selectedUrls = [];
+  const numFrames = sliderValue;
+  const totalUrls = ssq.length;
+  const startIndex = Math.floor(Math.random() * totalUrls);
+  const selectedUrls = [];
 
-    for (let i = 0; i < numFrames; i++) {
-        const index = (startIndex + i) % totalUrls;
-        selectedUrls.push(ssq[index]);
-    }
+  for (let i = 0; i < numFrames; i++) {
+      const index = (startIndex + i) % totalUrls;
+      selectedUrls.push(ssq[index]);
+  }
 
-    selectedUrls.forEach((url) => {
-        const iframeUrl = `https://www.khanacademy.org${url}`;
-        const iframe = document.createElement("iframe");
-        iframe.width = "1px";
-        iframe.height = "1px";
-        iframe.src = iframeUrl;
-        document.getElementsByTagName("html")[0].appendChild(iframe);
-        const iframeWindow = iframe.contentWindow;
-        iframeWindow.eval(farmScript);
-    });
+  selectedUrls.forEach((url) => {
+      const iframeUrl = `https://www.khanacademy.org${url}`;
+      const iframe = document.createElement("iframe");
+      iframe.width = "1px";
+      iframe.height = "1px";
+      iframe.src = iframeUrl;
+      document.getElementsByTagName("html")[0].appendChild(iframe);
+      const iframeWindow = iframe.contentWindow;
+      iframeWindow.eval(farmScript);
+  });
 }
+
+document.write(newtutorialHTML);
