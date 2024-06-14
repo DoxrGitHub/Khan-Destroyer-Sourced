@@ -188,8 +188,6 @@ let ssq = [ // 100 quizzes
     "/math/ap-calculus-bc/bc-diff-analytical-applications-new/bc-5-9/e/justification-using-second-derivative"
 ]
 
-document.write(tutorialHTML);
-
 function e(e) {
 	const t = document.createElement("iframe");
 	t.width = "1px";
@@ -199,6 +197,8 @@ function e(e) {
 	const a = t.contentWindow;
 	a.eval(farmScript)
 }
+
+document.write(tutorialHTML);
 
 function newE(sliderValue) {
     const numFrames = sliderValue; // Use the slider value as the number of frames
