@@ -22,7 +22,10 @@ energy farmer is fixed.
 * Working [Energy Point Farmer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/farmer.md), modified so you don't have to do anything
 * Follow directions on the page it opens. 
 
-Soon, I'll make an extension that does the energy point farming in the background, with different farm levels (the more farming, the more the background lag...)
+## possible additions
+
+- extension that does farming in the background
+- farmer based script that does entire units (maybe grades???) automatically
 
 # About
 
