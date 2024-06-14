@@ -1,4 +1,3 @@
-[< Go back](https://github.com/ilytobias/Khan-Destroyer)
 # Auto Answer
   
   **[Tutorial](https://www.youtube.com/watch?v=MdiaEcCMZf4)**

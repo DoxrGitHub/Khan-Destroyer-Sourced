@@ -1,4 +1,3 @@
-[< Go back](https://github.com/ilytobias/Khan-Destroyer)
 # Answer Overwrite
   
   **[Tutorial](https://www.youtube.com/watch?v=kM1oWRX2_TU)**
