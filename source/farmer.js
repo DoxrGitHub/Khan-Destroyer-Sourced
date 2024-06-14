@@ -1,13 +1,59 @@
 let newtutorialHTML = `
 <html>
-  <h1>How to use</h1>
-  <h2>Make sure you ran this bookmark on a khan url, doesnt matter what url as long as its an offical khan link. </h1>
-    </br>
-    <p>Efficiency ammount (the higher, the laggier... don't do 100 unless you're sure you can run it, otherwise it crashes your browser).</p>
-    <input type="range" min="1" max="100" value="5" class="slider" id="url">
-    <button id="btn" onclick="newE(document.getElementById(\'url\').value)">Start Farm</button>
+  <head>
+    <style>
+     .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radius: 5px;  
+        background: lightgrey;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition:.2s;
+        transition: opacity.2s;
+      }
+
+     .slider:hover {
+        opacity: 1;
+      }
+
+     .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+     .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>How to use</h1>
+    <h2>Make sure you ran this bookmark on a Khan URL, doesn't matter what URL as long as it's an official Khan link.</h2>
+    <br>
+    <p>Efficiency amount (the higher, the laggier... don't do 100 unless you're sure you can run it, otherwise it crashes your browser).</p>
+    <div style="display: flex; align-items: center;">
+      <span id="currentValue"></span>
+      <input type="range" min="1" max="100" value="5" class="slider" id="url">
+    </div>
+    <button id="btn" onclick="newE(document.getElementById('url').value)">Start Farm</button>
+  </body>
 </html>
-`
+`;
+
+function updateCurrentValue(value) {
+  document.getElementById('currentValue').innerText = value;
+}
 
 let tutorialHTML = `
 <html>
@@ -201,24 +247,24 @@ function e(e) {
 document.write(newtutorialHTML);
 
 function newE(sliderValue) {
-    const numFrames = sliderValue; // Use the slider value as the number of frames
-    const totalUrls = ssq.length; // Total number of URLs in the ssq array
-    const startIndex = Math.floor(Math.random() * totalUrls); // Random starting index
-    const selectedUrls = []; // Array to hold selected URLs
+    const numFrames = sliderValue;
+    const totalUrls = ssq.length;
+    const startIndex = Math.floor(Math.random() * totalUrls);
+    const selectedUrls = [];
 
     for (let i = 0; i < numFrames; i++) {
-        const index = (startIndex + i) % totalUrls; // Calculate the index for the current frame
-        selectedUrls.push(ssq[index]); // Add the selected URL to the array
+        const index = (startIndex + i) % totalUrls;
+        selectedUrls.push(ssq[index]);
     }
 
     selectedUrls.forEach((url) => {
-        const iframeUrl = `https://www.khanacademy.org${url}`; // Prepend "https://www.khanacademy.org" to the URL
-        const iframe = document.createElement("iframe"); // Create an iframe element
-        iframe.width = "1px"; // Set the width of the iframe
-        iframe.height = "1px"; // Set the height of the iframe
-        iframe.src = iframeUrl; // Set the source of the iframe
-        document.getElementsByTagName("html")[0].appendChild(iframe); // Append the iframe to the HTML body
-        const iframeWindow = iframe.contentWindow; // Get the window object of the iframe
-        iframeWindow.eval(farmScript); // Evaluate the farm script in the iframe
+        const iframeUrl = `https://www.khanacademy.org${url}`;
+        const iframe = document.createElement("iframe");
+        iframe.width = "1px";
+        iframe.height = "1px";
+        iframe.src = iframeUrl;
+        document.getElementsByTagName("html")[0].appendChild(iframe);
+        const iframeWindow = iframe.contentWindow;
+        iframeWindow.eval(farmScript);
     });
 }
