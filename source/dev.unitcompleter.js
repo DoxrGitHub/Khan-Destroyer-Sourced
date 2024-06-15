@@ -34,4 +34,6 @@ for (var i = 0; i < h4Elements.length; i++) {
         }
     }
 
-console.log(hrefArray);
+// from here, hrefArray contains every lesson necessary to complete
+
+document.write("")
