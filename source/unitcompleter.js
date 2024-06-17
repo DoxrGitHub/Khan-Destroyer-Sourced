@@ -1,18 +1,4 @@
-function getHrefValues(className) {
-    const elements = document.querySelectorAll(`a[role="button"][class="${className}"]`);
-    const hrefValues = Array.from(elements).map(element => element.getAttribute('href'));
-    return hrefValues;
-}
-
-// quiz button classes
-const classNames = ['_1w2ulnnd', '_1jmukqkc'];
-
 let hrefArray = [];
-
-classNames.forEach(className => {
-    const hrefs = getHrefValues(className);
-    hrefArray.push(...hrefs);
-});
 
 var h4Elements = document.getElementsByTagName('h4');
 for (var i = 0; i < h4Elements.length; i++) {
@@ -38,7 +24,7 @@ let e = JSON.parse;
 JSON.parse = function(t, n) {
     let a = e(t, n);
     try {
-        console.log(a);
+        // console.log(a);
         a.question = {
             content: "free young thug made by ilyTobias[[☃ radio 1]]",
             images: {},
@@ -84,7 +70,19 @@ window.e = true;
     if (typeof window.e === 'undefined') {
         alert("Please run Khan Destroyer before you use the farmer, this is essential for this.");
     } else {
-        var shouldContinueLoop = true; // Flag to control the loop
+        window.shouldContinueLoop = true; // Flag to control the loop
+        function checkElementAndPerformAction() {
+
+    const targetElement = document.querySelector('h3._1lu7ykzn');
+    if (targetElement) {
+        console.log("Element found Performing action...");
+        document.write("<h1>done</h1>");
+        window.parent.postMessage('remove', '*');
+        window.shouldContinueLoop = false;
+    } else {
+        console.log("Element not found.");
+    }
+}
 
         function e() {
             if (window.stopped ||!shouldContinueLoop) {
@@ -98,10 +96,8 @@ window.e = true;
                 document.getElementsByClassName("_rz7ls7u")[0]?.click();
                 document.getElementsByClassName("_6t500vf")[0]?.click();
 
-                if (document.getElementsByClassName("_dyu04hi")[0]) {
-                    document.write("<h1>done</h1>")
-                    shouldContinueLoop = false; // Set the flag to stop the loop
-                }
+                checkElementAndPerformAction();
+                
 
                 e(); // Call the function again
             }, 1000);
@@ -112,36 +108,36 @@ window.e = true;
 })();
 `
 
-document.write(`
-<html>
-  <head>
-  </head>
-  <body>
-    <h1>Started...</h1>
-    <h2>The script is now completing the unit!</h2>
-  </body>
-</html>
-`)
+document.write("<html><head></head><body><h1>Started...</h1><h2>The script is now completing the unit!</h2></body></html>")
+
+window.continue = true;
 
 function newIframe(e) {
-	const t = document.createElement("iframe");
-	t.width = "1px";
-	t.height = "1px";
-	t.src = e;
-	document.getElementsByTagName("html")[0].appendChild(t);
-	const a = t.contentWindow;
+    const t = document.createElement("iframe");
+    t.width = "1px";
+    t.height = "1px";
+    t.src = e;
+    document.getElementsByTagName("html")[0].appendChild(t);
+    const a = t.contentWindow;
 	a.eval(iframeScript)
+    
+        // Listen for messages from the iframe
+        window.addEventListener('message', function(event) {
+            console.log("got event")
+            if (event.data === 'remove') {
+                document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
+                console.log("remove message")
+                if (window.continue === true) {
+                setTimeout(() => {
+                    newIframe(hrefArray[0]);
+                }, 100);
+            } else {
+                console.log("all done!")
+            }
+            }
+        });
 }
 
-function delayedNewIframe(index, array) {
-    if (index >= array.length) return;
-  
-    setTimeout(() => {
-      newIframe(array[index]);
-      delayedNewIframe(index + 1, array);
-    }, 5000);
-  }
-  
-  
-  
-  delayedNewIframe(0, hrefArray); 
+setTimeout(() => {
+    newIframe(hrefArray[0]);
+}, 100);
