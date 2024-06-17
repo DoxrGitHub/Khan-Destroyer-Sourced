@@ -14,22 +14,22 @@ classNames.forEach(className => {
     hrefArray.push(...hrefs);
 });
 
-function processH4Elements() {
-    var h4Elements = document.getElementsByTagName('h4');
-    for (var i = 0; i < h4Elements.length; i++) {
-        if (h4Elements[i].innerText.includes("Unit test")) {
-            var aChildren = h4Elements[i].getElementsByTagName('a');
-            for (var j = 0; j < aChildren.length; j++) {
-                hrefArray.push(aChildren[j].href)
-            }
+var h4Elements = document.getElementsByTagName('h4');
+for (var i = 0; i < h4Elements.length; i++) {
+    console.log(h4Elements[i].innerText)
+    if (h4Elements[i].innerText.includes("Unit test")) {
+        var aChildren = h4Elements[i].getElementsByTagName('a');
+        console.log(aChildren.length)
+        for (var j = 0; j < aChildren.length; j++) {
+            console.log(aChildren[j].href)
+            hrefArray.push(aChildren[j].href)
         }
     }
 }
 
-setTimeout(processH4Elements, 0);
+console.log("last item: " + hrefArray[hrefArray.length - 1])
 
 // from here, hrefArray contains every lesson necessary to complete
-console.log(hrefArray[0])
 
 let iframeScript = `
 let e = JSON.parse;

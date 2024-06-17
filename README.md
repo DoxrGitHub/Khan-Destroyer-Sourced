@@ -6,7 +6,7 @@ energy farmer is fixed.
 
 <small><small>
 
-## Userscripts
+#### Userscripts
 **You can only run one userscript at a time or else it will break both.**
 <br>
 
@@ -18,14 +18,17 @@ energy farmer is fixed.
 
 ## Bookmarklet
 
+> Follow directions on the page it opens. 
+
 * Choose a hack: [Answer Overwrite](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/answer_overwrite.md), [Auto Answer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/auto_answer.md), [Answer Revealer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/show_answers.md)
 * Working [Energy Point Farmer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/farmer.md), modified so you don't have to do anything
-* Follow directions on the page it opens. 
+* Working [Unit Completer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/unitcompleter.md).
+
 
 ## possible additions
 
 - extension that does farming in the background
-- farmer based script that does entire units (maybe grades???) automatically
+- ~~farmer based script that does entire units (maybe grades???) automatically~~
 
 # About
 
