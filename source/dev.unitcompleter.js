@@ -14,16 +14,7 @@ classNames.forEach(className => {
     hrefArray.push(...hrefs);
 });
 
-var h4Elements = document.getElementsByTagName('h4');
-for (var i = 0; i < h4Elements.length; i++) {
-    if (h4Elements[i].innerText.includes("Quiz ")) {
-        var aChildren = h4Elements[i].getElementsByTagName('a');
-        for (var j = 0; j < aChildren.length; j++) {
-            hrefArray.push(aChildren[j].href)
-        }
-    }
-}
-
+function processH4Elements() {
     var h4Elements = document.getElementsByTagName('h4');
     for (var i = 0; i < h4Elements.length; i++) {
         if (h4Elements[i].innerText.includes("Unit test")) {
@@ -33,6 +24,9 @@ for (var i = 0; i < h4Elements.length; i++) {
             }
         }
     }
+}
+
+setTimeout(processH4Elements, 0);
 
 // from here, hrefArray contains every lesson necessary to complete
 console.log(hrefArray[0])
@@ -105,6 +99,7 @@ window.e = true;
                 document.getElementsByClassName("_6t500vf")[0]?.click();
 
                 if (document.getElementsByClassName("_dyu04hi")[0]) {
+                    document.write("<h1>done</h1>")
                     shouldContinueLoop = false; // Set the flag to stop the loop
                 }
 
@@ -138,9 +133,15 @@ function newIframe(e) {
 	a.eval(iframeScript)
 }
 
-hrefArray.forEach((link) => {
-    newIframe(link)
-});
-
-
-/* - ** - */
+function delayedNewIframe(index, array) {
+    if (index >= array.length) return;
+  
+    setTimeout(() => {
+      newIframe(array[index]);
+      delayedNewIframe(index + 1, array);
+    }, 5000);
+  }
+  
+  
+  
+  delayedNewIframe(0, hrefArray); 
