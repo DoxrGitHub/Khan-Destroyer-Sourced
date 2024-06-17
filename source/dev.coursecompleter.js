@@ -154,7 +154,8 @@ function newIframe(e) {
                     newIframe(hrefArray[0]);
                 }, 100);
             } else {
-                console.log("all done!")
+                        document.write("<h1>done</h1>");
+                        window.parent.postMessage('remove-' + 'someid', '*'); // it goes through every iframe's src to get the randomly generated id for the iframe
             }
             }
         });
@@ -185,6 +186,21 @@ document.write(`
         document.getElementsByTagName("html")[0].appendChild(t);
         const a = t.contentWindow;
         a.eval(iframeScript)
+
+                // Listen for messages from the iframe
+                window.addEventListener('message', function(event) {
+                    console.log("got event")
+                    if (event.data === 'remove') {
+                        document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
+                        console.log("remove message")
+                        if (window.continue === true) {
+                        setTimeout(() => {
+                            newIframe(hrefArray[0]);
+                        }, 100);
+                    } else {
+                    }
+                    }
+                });
     }
     
     function delayedNewIframe(index, array) {
