@@ -36,6 +36,7 @@ else {
                         for (var j = 0; j < aChildren.length; j++) {
                             // the done screen has been found
                             alert("done!")
+                            window.stopped = true;
                             break;
                         }
                     }

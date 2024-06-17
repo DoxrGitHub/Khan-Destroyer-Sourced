@@ -14,6 +14,12 @@ links.forEach(link => {
 console.log("last item: " + hrefArray[hrefArray.length - 1])
 
 let iframeScript = `
+(async () => {
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+
+  await delay(5000);
+
 let hrefArray = [];
 
 var h4Elements = document.getElementsByTagName('h4');
@@ -157,6 +163,7 @@ function newIframe(e) {
 setTimeout(() => {
     newIframe(hrefArray[0]);
 }, 100);
+})();
 `
 
 document.write(`
