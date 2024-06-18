@@ -181,6 +181,10 @@ window.parent.postMessage("remove-" + id, '*');            }
         });
 }
 
+if (hrefArray.length == 0) {
+    window.parent.postMessage("remove-" + id, '*');
+}
+
 setTimeout(() => {
     newIframe(hrefArray[0]);
 }, 100);
