@@ -130,6 +130,27 @@ window.e = true;
 })();
 \`
 
+    var iframes = window.parent.document.getElementsByTagName('iframe');
+    let id = ""
+
+    // Iterate over each iframe
+    for (var i = 0; i < iframes.length; i++) {
+        var src = iframes[i].src;
+
+        // Assuming the ID is part of the URL path and we want to extract it
+        
+        console.log(window.location.pathname)
+        console.log(src)
+        console.log(src === window.location.href)
+        if (window.location.href === src) {
+            var uniqueId = "unique_iframe_" + Math.floor(Math.random() * 1000000);
+            iframes[i].id = uniqueId;
+            id = uniqueId;
+            console.log("found good id: " + id)
+            break;
+        }
+    }
+
 document.write("<html><head></head><body><h1>Started...</h1><h2>The script is now completing the unit!</h2></body></html>")
 
 window.continue = true;
@@ -155,8 +176,7 @@ function newIframe(e) {
                 }, 100);
             } else {
                         document.write("<h1>done</h1>");
-                        window.parent.postMessage('remove-' + 'someid', '*'); // it goes through every iframe's src to get the randomly generated id for the iframe
-            }
+window.parent.postMessage("remove-" + id, '*');            }
             }
         });
 }
@@ -186,22 +206,17 @@ document.write(`
         document.getElementsByTagName("html")[0].appendChild(t);
         const a = t.contentWindow;
         a.eval(iframeScript)
-
-                // Listen for messages from the iframe
-                window.addEventListener('message', function(event) {
-                    console.log("got event")
-                    if (event.data === 'remove') {
-                        document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
-                        console.log("remove message")
-                        if (window.continue === true) {
-                        setTimeout(() => {
-                            newIframe(hrefArray[0]);
-                        }, 100);
-                    } else {
-                    }
-                    }
-                });
     }
+
+        // Listen for messages from the iframe
+        window.addEventListener('message', function(event) {
+            if (event.data.includes('remove-')) {
+                let deleteidarray = event.data.split("-")
+                let delID = deleteidarray[1]
+                console.log(delID)
+                document.body.removeChild(document.getElementById(delID));
+            }
+        });
     
     function delayedNewIframe(index, array) {
         if (index >= array.length) return;
