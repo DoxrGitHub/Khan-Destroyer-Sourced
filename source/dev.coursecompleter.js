@@ -161,19 +161,20 @@ function newIframe(e) {
     const a = t.contentWindow;
 	a.eval(iframeScript)
     
-        // Listen for messages from the iframe
         window.addEventListener('message', function(event) {
-            if (event.data === 'remove') {
-                document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
-                if (window.continue === true) {
+        if (event.data === 'remove') {
+            document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
+            if (window.continue === true) {
                 setTimeout(() => {
-                    newIframe(hrefArray[0]);
+                    newIframe(hrefArray[0]); // Ensure hrefArray is defined and has at least one element
                 }, 100);
+                window.continue = false
             } else {
-                        document.write("<h1>done</h1>");
-window.parent.postMessage("remove-" + id, '*');            }
+                document.write("<h1>done</h1>");
+                window.parent.postMessage("remove-" + id, '*'); // Ensure id is defined
             }
-        });
+        }
+    });
 }
 
 if (hrefArray.length == 0) {
