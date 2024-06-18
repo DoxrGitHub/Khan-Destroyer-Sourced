@@ -111,7 +111,9 @@ window.e = true;
 document.write("<html><head></head><body><h1>Started...</h1><h2>The script is now completing the unit!</h2></body></html>")
 
 window.continue = true;
+let globalCounter = 1
 
+/*
 function newIframe(e) {
     const t = document.createElement("iframe");
     t.width = "1px";
@@ -138,6 +140,55 @@ function newIframe(e) {
         });
 }
 
+setTimeout(() => {
+    newIframe(hrefArray[0]);
+}, 100);
+
+/* */
+
+async function newIframe(e) {
+    globalCounter++
+    const t = document.createElement("iframe");
+    t.width = "1px";
+    t.height = "1px";
+    t.src = e;
+    document.getElementsByTagName("html")[0].appendChild(t);
+    const a = t.contentWindow;
+    await a.eval(iframeScript); // Ensure iframeScript execution completes before moving on
+
+    // Listen for messages from the iframe
+    window.addEventListener('message', function(event) {
+        console.log("got event");
+        if (event.data === 'remove') {
+            document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
+            console.log("remove message");
+            if (globalCounter > 2) {
+                window.continue = false
+            }
+            if (!window.continue) {
+                console.log("Stopping process due to window.continue being false");
+                return;
+            }
+
+            setTimeout(async () => {
+                await removeIframes();
+                newIframe(hrefArray[0]);
+            }, 100);
+        }
+    });
+
+    // Function to remove all iframes
+    function removeIframes() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
+                resolve(true);
+            }, 100);
+        });
+    }
+}
+
+// Initial call to start the process
 setTimeout(() => {
     newIframe(hrefArray[0]);
 }, 100);
