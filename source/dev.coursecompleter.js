@@ -35,8 +35,6 @@ for (var i = 0; i < h4Elements.length; i++) {
     }
 }
 
-console.log("last item: " + hrefArray[hrefArray.length - 1])
-
 // from here, hrefArray contains every lesson necessary to complete
 
 let iframeScript = \`
@@ -102,7 +100,6 @@ window.e = true;
         window.parent.postMessage('remove', '*');
         window.shouldContinueLoop = false;
     } else {
-        console.log("Element not found.");
     }
 }
 
@@ -166,10 +163,8 @@ function newIframe(e) {
     
         // Listen for messages from the iframe
         window.addEventListener('message', function(event) {
-            console.log("got event")
             if (event.data === 'remove') {
                 document.querySelectorAll('iframe').forEach(iframe => iframe.remove());
-                console.log("remove message")
                 if (window.continue === true) {
                 setTimeout(() => {
                     newIframe(hrefArray[0]);
@@ -182,6 +177,7 @@ window.parent.postMessage("remove-" + id, '*');            }
 }
 
 if (hrefArray.length == 0) {
+    document.write("<h1>done</h1>");
     window.parent.postMessage("remove-" + id, '*');
 }
 
@@ -217,8 +213,8 @@ document.write(`
             if (event.data.includes('remove-')) {
                 let deleteidarray = event.data.split("-")
                 let delID = deleteidarray[1]
-                console.log(delID)
-                document.body.removeChild(document.getElementById(delID));
+                console.log("element delete request ID (coursecompleter parent): " + delID)
+                document.getElementById(delID).remove()
             }
         });
     
