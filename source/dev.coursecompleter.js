@@ -25,7 +25,7 @@ let hrefArray = [];
 var h4Elements = document.getElementsByTagName('h4');
 for (var i = 0; i < h4Elements.length; i++) {
     console.log(h4Elements[i].innerText)
-    if (h4Elements[i].innerText.includes("Unit test")) {
+    if (h4Elements[i].innerText.includes("Unit test") && !h4Elements[i].innerText.includes("Unit test: 100%")) {
         var aChildren = h4Elements[i].getElementsByTagName('a');
         console.log(aChildren.length)
         for (var j = 0; j < aChildren.length; j++) {
