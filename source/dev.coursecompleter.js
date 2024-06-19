@@ -230,4 +230,4 @@ document.write(`
       
       
       
-      delayedNewIframe(0, hrefArray); 
+      delayedNewIframe(0, hrefArray);
