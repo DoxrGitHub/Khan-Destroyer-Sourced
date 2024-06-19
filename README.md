@@ -27,12 +27,13 @@ energy farmer is fixed.
 * Working [Energy Point Farmer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/farmer.md), modified so you don't have to do anything
 * Working [Unit Completer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/unitcompleter.md), now 10x faster and much less laggier than before!
 
-There is also a working course completer that does the same thing as unit completer (file: `dev.coursecompleter.js`, run it in devtools console) but it's extremely laggy.
+There is also a working course completer that does the same thing as unit completer (file path: `source/dev.coursecompleter.js`, run it in devtools console) but it's extremely laggy.
 
 ## possible additions
 
 - extension that does farming in the background
 - ~~farmer based script that does entire units (maybe grades???) automatically~~
+- change the amount of questions - DONE (`source/dev.questionamountchanger.js`) but its essentially useless
 
 # About
 
