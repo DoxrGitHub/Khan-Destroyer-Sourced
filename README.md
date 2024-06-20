@@ -1,33 +1,14 @@
-# modified by doxr
+# KA Destroyer, modified by doxr
 
-energy farmer is fixed.
+*original cheats aren't included - use the original repo*
 
-# Download
+## Tools
 
-<small><small>
+* Working [Energy Point Farmer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/farmer.md), modified with a few changes
+* Working [Unit Completer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/unitcompleter.md) (adding completion indication soon)
+* Half broken **Course Completer** (file path: `source/dev.coursecompleter.js`, run it in devtools console) (might add completion indication)
 
-#### Userscripts
-**You can only run one userscript at a time or else it will break both.**
-<br>
-
-* Get a userscript provider like [Tampermoney](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) Or [Greasyfork](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/).
-* Choose a userscript [Answer Overwrite](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/raw/main/cheats/overwrite.user.js), [Answer Revealer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/raw/main/cheats/revealer.user.js) (For more selection please use the Bookmarklet method.)
-* Go on a Khan lesson and it will be loaded
-
-  </small></small>
-
-## Bookmarklet
-
-> Follow directions on the page it opens. 
-
-* Choose a hack: [Answer Overwrite](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/answer_overwrite.md), [Auto Answer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/auto_answer.md), [Answer Revealer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/show_answers.md)
-
---
-
-* Working [Energy Point Farmer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/farmer.md), modified so you don't have to do anything
-* Working [Unit Completer](https://github.com/DoxrGitHub/Khan-Destroyer-Sourced/blob/main/cheats/unitcompleter.md), now 10x faster and much less laggier than before!
-
-There is also a working course completer that does the same thing as unit completer (file path: `source/dev.coursecompleter.js`, run it in devtools console) but it's extremely laggy.
+It the same thing as the unit completer, except much more unreliably...
 
 ## possible additions
 
@@ -39,6 +20,6 @@ There is also a working course completer that does the same thing as unit comple
 
 it is open sourced
 
-created originally by ilyTobias
+created originally by ilyTobias - https://github.com/ilyTobias/Khan-Destroyer
 
 modified by doxr
