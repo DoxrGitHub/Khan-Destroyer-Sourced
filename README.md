@@ -10,6 +10,8 @@
 
 It the same thing as the unit completer, except much more unreliably...
 
+* Very weird "Question Amount Changer" (file path: `source/dev.questionamountchanger.js`, run it in devtools console)... expect KA to actually think you did only one question.
+
 ## possible additions
 
 - extension that does farming in the background

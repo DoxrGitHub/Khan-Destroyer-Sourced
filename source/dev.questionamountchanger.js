@@ -9,12 +9,12 @@ else {
             if (n && n.data && n.data.getOrCreateExerciseTask) {
                 // Modify userExercises array
                 if (Array.isArray(n.data.getOrCreateExerciseTask.result.userTask.userExercises)) {
-                    n.data.getOrCreateExerciseTask.result.userTask.userExercises.splice(2); // Remove all but the first item
+                    n.data.getOrCreateExerciseTask.result.userTask.userExercises.splice(1); // Remove all but the first item
                 }
 
                 // Change completionCriteria name
                 if (n.data.getOrCreateExerciseTask.result.userTask.task && n.data.getOrCreateExerciseTask.result.userTask.task.completionCriteria) {
-                    n.data.getOrCreateExerciseTask.result.userTask.task.completionCriteria.name = "num_problems_2";
+                    n.data.getOrCreateExerciseTask.result.userTask.task.completionCriteria.name = "num_problems_1";
                 }
 
 
